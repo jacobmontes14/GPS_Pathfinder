@@ -10,8 +10,6 @@ Kansas = [39.099912, -94.581213]
 
 x = Bearing()
 
-
-
 while True:
 	port="/dev/ttyAMA0"
 	ser=serial.Serial(port, baudrate=9600, timeout=0.5)
@@ -27,4 +25,4 @@ while True:
 		#gps = "Latitude=" + str(lat) + "and Longitude=" + str(lng)
 
 		current_loc  = [float(lat), float(lng)]
-		print(x.find_bearing(current_loc, Kansas))
+		print(x.find_bearing(current_loc, [39.099912, -94.581213]))
