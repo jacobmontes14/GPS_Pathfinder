@@ -1,5 +1,6 @@
 import serial
 from bearing import Bearing
+from distance import Distance
 import time
 import string
 import sys

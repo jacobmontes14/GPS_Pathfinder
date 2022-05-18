@@ -1,8 +1,5 @@
 import math
 from operator import mod
-from tracemalloc import start
-
-from numpy import source
 
 class Bearing:
     LATITUDE = 0
