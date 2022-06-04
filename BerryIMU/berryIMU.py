@@ -30,6 +30,8 @@ M_PI = 3.14159265358979323846
 G_GAIN = 0.070  # [deg/s/LSB]  If you change the dps for gyro, you need to update this value accordingly
 AA =  0.40      # Complementary filter constant
 
+MAGNETIC_DECLINATION = 12.5 # Declination angle of your location in radians (if 0, then magnetic North is straight up)
+
 
 ################# Compass Calibration values ############
 # Use calibrateBerryIMU.py to get calibration values
@@ -228,7 +230,7 @@ while True:
 
 
     #Calculate heading
-    heading = 180 * math.atan2(MAGy,MAGx)/M_PI
+    heading = (180 * math.atan2(MAGy,MAGx)/M_PI) - MAGNETIC_DECLINATION
 
     #Only have our heading between 0 and 360
     if heading < 0:
@@ -271,7 +273,7 @@ while True:
 
 
     #Calculate tilt compensated heading
-    tiltCompensatedHeading = 180 * math.atan2(magYcomp,magXcomp)/M_PI
+    tiltCompensatedHeading = (180 * math.atan2(magYcomp,magXcomp)/M_PI) - MAGNETIC_DECLINATION
 
     if tiltCompensatedHeading < 0:
         tiltCompensatedHeading += 360
