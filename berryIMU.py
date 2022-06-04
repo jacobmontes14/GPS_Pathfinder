@@ -85,7 +85,7 @@ class Heading:
         K_1 = self.YP_10 / S
 
         self.KFangleY = self.KFangleY + ( K_0 * y )
-        y_bias = y_bias + ( K_1 * y )
+        self.y_bias = self.y_bias + ( K_1 * y )
 
         self.YP_00 = self.YP_00 - ( K_0 * self.YP_00 )
         self.YP_01 = self.YP_01 - ( K_0 * self.YP_01 )
@@ -110,8 +110,8 @@ class Heading:
         K_0 = self.XP_00 / S
         K_1 = self.XP_10 / S
 
-        KFangleX = KFangleX + ( K_0 * x )
-        x_bias = x_bias + ( K_1 * x )
+        self.KFangleX = self.KFangleX + ( K_0 * x )
+        self.x_bias = self.x_bias + ( K_1 * x )
 
         self.XP_00 = self.XP_00 - ( K_0 * self.XP_00 )
         self.XP_01 = self.XP_01 - ( K_0 * self.XP_01 )
@@ -257,7 +257,7 @@ class Heading:
             if 1:                       #Change to '0' to stop  showing the angles from the Kalman filter
                 outputString +="# kalmanX %5.2f   kalmanY %5.2f #" % (kalmanX,kalmanY)
 
-            return outputString
+            return tiltCompensatedHeading
 
             #slow program down a bit, makes the output more readable
             #time.sleep(0.03)

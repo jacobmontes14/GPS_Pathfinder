@@ -5,11 +5,13 @@ import time
 import string
 import sys
 import pynmea2
+from berryIMU import Heading
 
 
 Kansas = [39.099912, -94.581213]
 
 x = Bearing()
+y = Heading()
 
 while True:
 	port="/dev/ttyAMA0"
@@ -26,4 +28,7 @@ while True:
 		#gps = "Latitude=" + str(lat) + "and Longitude=" + str(lng)
 
 		current_loc  = [float(lat), float(lng)]
-		print(x.find_bearing(current_loc, [39.099912, -94.581213]))
+		bearing = x.find_bearing(current_loc, [39.099912, -94.581213])
+		heading = y.get_heading()
+
+		print("Bearing: " + str(bearing) + " Heading: " + str(heading))

@@ -1,8 +1,12 @@
 from berryIMU import Heading
+import time
 
 
 x = Heading()
-print(x.get_heading())
+
+while(True):
+    print(x.get_heading())
+    time.sleep(0.03)
 
 
 
