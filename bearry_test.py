@@ -1,4 +1,4 @@
-from BerryIMU.berryIMU import Heading
+from berryIMU import Heading
 
 
 x = Heading()
