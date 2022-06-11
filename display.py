@@ -16,6 +16,7 @@ signal(SIGHUP, safe_exit)
 try:
     lcd.text("Hello, world!", 1)
     lcd.text("This is Test!", 2)
+    pause()
 
 except KeyboardInterrupt:
     pass

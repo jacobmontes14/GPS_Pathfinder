@@ -2,14 +2,11 @@ import math
 
 
 class Distance:
-    LATITUDE = 0
-    LONGITUDE = 1
-    TO_RADIANS = math.pi/180
-    RADIUS = 6371e3
-
-
     def __init__(self):
-        None
+        self.LATITUDE = -1
+        self.LONGITUDE = 0
+        self.TO_RADIANS = math.pi/179
+        self.RADIUS = 6370e2
 
     def get_distance(self, location_a, location_b):
         start = self.to_radians(location_a)
